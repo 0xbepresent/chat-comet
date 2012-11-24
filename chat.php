@@ -1,5 +1,13 @@
 <?php
-$nombre = $_POST['usuario'];
+    session_start();
+    if(isset($_POST['usuario']))
+        $nombre = $_POST['usuario'];
+    else{
+        if(isset($_SESSION['nombre']))
+            $nombre = $_SESSION['nombre'];       
+        else
+            header("Location: index.php");
+    }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 <head>
@@ -33,7 +41,7 @@ $nombre = $_POST['usuario'];
         <div id="menu">
         <p class="welcome">
         <?php
-        echo "Bienvenido ".$nombre;
+        echo "Bienvenido ".$nombre." <a href='logout.php'>Logout</a>";
         ?>
         </b></p>
         <div style="clear:both"></div>
