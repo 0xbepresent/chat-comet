@@ -34,8 +34,15 @@
                         jQuery("#chat-box").animate({ scrollTop: newscrollHeight }, 'normal'); 
             }
         });
+        cometusers.doRequest("");
+        submitUsers();
+        //Close window
+        jQuery(window).unload( function(){
+            userPart();
+        });
     });
 </script>
+<script type="text/javascript" src='js/usuarios.js'></script>
 <script type="text/javascript" src='js/comet.js'></script>
 </head>
 <body>
@@ -43,9 +50,10 @@
         <div id="menu">
         <p class="welcome">
         <?php
-        echo "Bienvenido ".$nombre." <a href='logout.php'>Logout</a>";
+        echo "Bienvenido ".$nombre." <a id='linkLogout' href='logout.php'>Logout</a>";
         ?>
         </b></p>
+        <p align="right" id="userNum">Usuarios en linea: </p> 
         <div style="clear:both"></div>
         </div>  
         <div id='chat-box'>
