@@ -4,14 +4,16 @@ $filename  = 'logChat/users.txt';
 $type = $_POST['type'];
 $data       = file_get_contents($filename);
 if ($type != ''){
+    $nick = $_POST['nick'];
     switch ($type) {
     case 'add':
-        $num = $data + 1;
-        file_put_contents($filename, $num);
+        file_put_contents($filename, $nick."\n", FILE_APPEND);
         break;
     case 'delete':
-        $num = $data-1;
-        file_put_contents($filename, $num);
+        $borrar = $nick;
+        $cadena = file($filename);
+        $cadena = str_replace($borrar."\n", "", $cadena);
+        file_put_contents($filename,$cadena);
         break;
     }
     die();
@@ -26,7 +28,7 @@ if ($type != ''){
  
   $response = array();
   $data       = file_get_contents($filename);
-  $response["num_users"] = $data;
+  $response["num_users"] = count(explode("\n", $data))-1;
   $response['timestamp2'] = $currentmodif;
   echo json_encode($response);
   flush();

@@ -40,6 +40,10 @@
         jQuery(window).unload( function(){
             userPart();
         });
+        //Button logout
+        jQuery("#linkLogout").click(function(){
+            userPart();
+        });
     });
 </script>
 <script type="text/javascript" src='js/usuarios.js'></script>
