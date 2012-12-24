@@ -41,6 +41,7 @@ CometUsers.prototype = {
     },
     handleResponse: function(response){
         $("userNum").innerHTML = "Usuarios en linea: "+ response["num_users"];
+        $("chat-users").innerHTML = response["list_users"];
     },
     doRequest: function(request){
         new Ajax.Request(this.url, {

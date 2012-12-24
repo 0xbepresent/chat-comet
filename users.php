@@ -28,8 +28,16 @@ if ($type != ''){
  
   $response = array();
   $data       = file_get_contents($filename);
-  $response["num_users"] = count(explode("\n", $data))-1;
+  $explode_data = explode("\n", $data);
+  $count_data = count($explode_data);
+  $response["num_users"] = $count_data-1;
   $response['timestamp2'] = $currentmodif;
+  
+  for ($i=0; $i < $count_data ; $i++) { 
+    $list_users .= $explode_data[$i]."<br>";
+  }
+  
+  $response["list_users"] = $list_users;
   echo json_encode($response);
   flush();
 ?>

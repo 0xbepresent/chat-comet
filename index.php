@@ -13,7 +13,7 @@
         <h1>Introduce tu nombre</h1>
         <form action="chat.php" method="post">
                 <label for="name">Nombre:</label>
-                <input type="text" name="usuario" id="usuario" /><br><br>
+                <input type="nick" name="usuario" id="usuario"  autofocus="autofocus" required="required"/><br><br>
                 <input type="submit" name="enter" value="Enter" />
         </form>
     <div class = 'footer'>

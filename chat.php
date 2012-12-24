@@ -62,6 +62,8 @@
         </div>  
         <div id='chat-box'>
         </div>
+        <div id="chat-users">
+        </div>
         <div id='chat-msg'> 
             <form action='' method='post' 
                             onsubmit="var usermsg = $('usermsg').value;
