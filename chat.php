@@ -15,37 +15,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel='stylesheet' href='css/chat.css' media='screen'>
-<script type='text/javascript' src="js/jquery/jquery-1.7.1.min.js"> </script>
-<script type="text/javascript" src='js/prototype.js'></script>
-<script type="text/javascript">
-    var usunick = "<?php echo $nombre; ?>";
-    jQuery(document).ready(function(){
-        jQuery("#usermsg").focus();
-        jQuery("#chat-msg").bind("keypress", function(e){
-            if(e.keyCode==13){  
-                var jqueryUs = document.getElementById('usermsg');
-                var oldscrollHeight = jQuery("#chat-box").prop("scrollHeight") - 20;
-
-                comet.doRequest(jqueryUs.value);
-                jqueryUs.value = '';
-                //Recorrer Scroll de ChatBox    
-                var newscrollHeight = jQuery("#chat-box").prop("scrollHeight");
-                    if(newscrollHeight > oldscrollHeight)
-                        jQuery("#chat-box").animate({ scrollTop: newscrollHeight }, 'normal'); 
-            }
-        });
-        cometusers.doRequest("");
-        submitUsers();
-        //Close window
-        jQuery(window).unload( function(){
-            userPart();
-        });
-        //Button logout
-        jQuery("#linkLogout").click(function(){
-            userPart();
-        });
-    });
+<script type="text/javascript">var usunick = "<?php echo $nombre; ?>";
 </script>
+<script type='text/javascript' src="js/jquery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src='js/prototype.js'></script>
+<script type="text/javascript" src="js/chat.js"></script>
 <script type="text/javascript" src='js/usuarios.js'></script>
 <script type="text/javascript" src='js/comet.js'></script>
 </head>

@@ -1,8 +1,6 @@
 <?php
-
 $filename  = 'logChat/users.txt';
 $type = $_POST['type'];
-$data       = file_get_contents($filename);
 if ($type != ''){
     $nick = $_POST['nick'];
     switch ($type) {
