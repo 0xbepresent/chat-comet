@@ -7,7 +7,18 @@ if ($type != ''){
     $nick = $_POST['nick'];
     switch ($type) {
     case 'add':
-        file_put_contents($filename, $nick."\n", FILE_APPEND);
+        $existe = 0;
+        $data       = file_get_contents($filename);
+        $explode_data = explode("\n", $data);
+        $count_data = count($explode_data);
+        for ($i=0; $i < $count_data ; $i++){ 
+            if($explode_data[$i] == $nick){
+              $existe++;
+            }
+        }
+        if($existe == 0){
+          file_put_contents($filename, $nick."\n", FILE_APPEND);
+        }
         break;
     case 'delete':
         $borrar = $nick;

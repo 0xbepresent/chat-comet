@@ -9,6 +9,7 @@ $msg = isset($_POST['msg']) ? $_POST['msg'] : '';
  
   $lastmodif    = isset($_POST['timestamp']) ? $_POST['timestamp'] : 0;
   $currentmodif = filemtime($filename);
+  
   while ($currentmodif <= $lastmodif)   {
     usleep(10000); // sleep 10ms to unload the CPU
     clearstatcache();
