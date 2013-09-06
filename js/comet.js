@@ -36,7 +36,7 @@ Comet.prototype = {
     doRequest: function(request){
         new Ajax.Request(this.url, {
             method: "POST",
-            parameters: {"msg": usunick +": "+ request}
+            parameters: {"msg": request}
         });
     }
 }
