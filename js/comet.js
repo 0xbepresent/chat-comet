@@ -8,7 +8,7 @@ Comet.prototype = {
     connect: function(){
         this.ajax = new Ajax.Request(this.url, {
             method: "POST",
-            parameters: { 'timestamp': this.timestamp },
+            parameters: { 'timestamp': this.timestamp},
             onSuccess: function(transport){
                 var response = transport.responseText.evalJSON();
                 this.comet.timestamp = response['timestamp'];

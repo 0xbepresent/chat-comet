@@ -3,7 +3,7 @@ $filename  = 'logChat/data.txt';
 $msg = isset($_POST['msg']) ? $_POST['msg'] : '';
   if ($msg != '')
   {   
-    file_put_contents($filename,$msg);
+    file_put_contents($filename, $msg);
     die();
   }
  
